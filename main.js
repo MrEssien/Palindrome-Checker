@@ -1,4 +1,4 @@
-const inputText = document.getElementById('data');
+const inputText = document.getElementById('data').value;
 const button = document.getElementById('btn')
 
 inputText=inputText.replace(/[\W_]/g, '');  //to strip away special characters and spaces 
