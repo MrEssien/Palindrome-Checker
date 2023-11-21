@@ -1,21 +1,18 @@
-const inputText = document.getElementById('data').value;
+const inputText = document.getElementById('data');
 const button = document.getElementById('btn')
 
-inputText=inputText.replace(/[\W_]/g, '');  //to strip away special characters and spaces 
-inputText= inputText.toLowerCase();  // to remove Capitals letters
 
-const palindrome =() => {
-   // inputText=inputText.replace(/[\W_]/g, '');  //to strip away special characters and spaces 
-    //inputText= inputText.toLowerCase();  // to remove Capitals letters
-    
-    // then for loop to go through string to check for correct same amount of characters
-     for(let i=0; i<inputText.length; i+=1){
-         if(inputText[i] !== inputText[inputText.length-1 -i]){
-            document.getElementById('output').textContent = false;
-            }  
+button.addEventListener("click", () => {
+if (!inputText.value) alert('Input is empty ')
+else {
+    const inputVal=inputText.value.replace(/[\W_]/g, '').toLowerCase();  //to strip away special characters and spaces 
+    const newVal = inputText.value.replace(/[\W_]/g, '').split('').reverse().join('').toLowerCase();  // to split the input text into array, then reverse the array to check if the same n to remove Capitals letters
+    if(
+        inputVal == newVal ){
+            document.getElementById('output').textContent = `${inputText.value} is a Palindrome!`  
+        } else{
+            document.getElementById('output').textContent = `${inputText.value} is not a Palindrome!`  
         }
-        document.getElementById('output').textContent= true;
-    
-    }
 
-    button.addEventListener("click", palindrome);
+   }
+})
